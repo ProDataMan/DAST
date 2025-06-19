@@ -21,7 +21,7 @@
    - Wait 2–3 minutes, then open a browser and go to `http://localhost:8085`.
      - **Expected**: Jenkins setup page; get the initial admin password:
        ```bash
-       docker exec $(docker ps -q -f name=jenkins) cat /var/jenkins_home/secrets/initialAdminPassword
+       docker exec jenkins bash -c "cat /var/jenkins_home/secrets/initialAdminPassword"
        ```
        - **Note**: Uses `docker ps -q` to dynamically get the latest `jenkins` container ID.
        - **Expected**: A 32-character password (e.g., `a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6`).
